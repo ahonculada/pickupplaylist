@@ -1,5 +1,6 @@
 import io
 import os
+import pickle
 
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -20,24 +21,53 @@ def cap_id_to_caption():
     api_version = "v3"
     client_secrets_file = "./secrets/client_secret.json"
 
+    credentials = None
+
+    # token.pickle stores the user's credentials from previously successful logins
+    if os.path.exists("./secrets/token.pickle"):
+        print("Loading Credentials from File...")
+        with open("./secrets/token.pickle", "rb") as token:
+            credentials = pickle.load(token)
+
+    if not credentials or not credentials.valid:
+        if credentials and credentials.expired and credentials.refresh_token:
+            print('Refreshing Access Token...')
+            credentials.refresh(Request())
+        else:
+            print('Fetching New Tokens...')
+            flow = InstalledAppFlow.from_client_secrets_file(
+                client_secrets_file,
+                scopes,
+            )
+            flow.run_local_server(
+                port=8080,
+                prompt="consent",
+                authorization_prompt_message="",
+            )
+            credentials = flow.credentials
+
+            # Save credentials for the next run
+            with open("./secrets/token.pickle", "wb") as f:
+                print("Saving Credentials for Future Use...")
+                pickle.dump(credentials, f)
+
+
     # Get credentials and create an API client
-    flow = InstalledAppFlow.from_client_secrets_file(
-        client_secrets_file, scopes)
-    flow.run_local_server(port=8080, prompt="consent")
-    #credentials = flow.credentials
-    #print(credentials.to_json())
-   # youtube = build(
-   #     api_service_name, api_version, credentials=credentials)
+    youtube = build(
+        api_service_name,
+        api_version,
+        credentials=credentials,
+    )
 
-   # request = youtube.captions().download(
-   #     id="8yMV7mc691ajCze115cxb5goeKsI0BJn"
-   # )
-   # fh = io.FileIO("caption.txt", "wb")
+    #request = youtube.captions().download(
+    #    id="8yMV7mc691ajCze115cxb5goeKsI0BJn",
+    #)
+    #fh = io.FileIO("caption.txt", "wb")
 
-   # download = MediaIoBaseDownload(fh, request)
-   # complete = False
-   # while not complete:
-   #   status, complete = download.next_chunk()
+    #download = MediaIoBaseDownload(fh, request)
+    #complete = False
+    #while not complete:
+    #    status, complete = download.next_chunk()
 
 
 if __name__ == "__main__":
