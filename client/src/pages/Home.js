@@ -12,12 +12,42 @@ export default function Home() {
         Here’s your recommended videos:
       </p>
       <div class="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 ml-6 mr-6 mt-5">
-        <div className="bg-gray-200">Video Title</div>
-        <div className="bg-gray-200">Video Title</div>
-        <div className="bg-gray-200">Video Title</div>
-        <div className="bg-gray-200">Video Title</div>
-        <div className="bg-gray-200">Video Title</div>
-        <div className="bg-gray-200">Video Title</div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
+        <div className="bg-gray-200 rounded-xl">
+          <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
+          <div className="p-4">
+            <h2 className="font-bold text-xl">Video Title</h2>
+          </div>
+        </div>
       </div>
     </div>
   );
