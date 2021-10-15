@@ -8,7 +8,7 @@ import { Menu, Transition } from "@headlessui/react";
 export default function Header() {
   let history = useHistory();
   return (
-    <div className="w-full bg-gray-50 border-b-2 border-solid border-gray-300 pt-4 pb-4 pl-4 pr-4 flex justify-between">
+    <div className="w-full bg-gray-50 border-b-2 border-solid border-gray-300 pt-4 pb-4 pl-4 pr-4 flex justify-between fixed">
       <div className="w-1/3">
         <img src={Logo} alt="logo" className="w-60 h-8" />
       </div>
