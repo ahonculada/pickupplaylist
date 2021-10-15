@@ -35,14 +35,16 @@ export default function SignIn() {
               className="p-2 w-full border-solid border-gray-200 border-2 rounded-md"
               placeholder="johndoe@gmail.com"
               type="email"
-              //   onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             ></input>
             <h3 className="mt-3">Password</h3>
             <input
               className="p-2 w-full border-solid border-gray-200 border-2 rounded-md"
               placeholder="**********"
               type="password"
-              //   onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
             ></input>
             <button
               onClick={authenticate}
