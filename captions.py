@@ -1,6 +1,7 @@
 import io
 import os
 import pickle
+import pprint
 
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
@@ -10,7 +11,7 @@ import googleapiclient.errors
 
 from googleapiclient.http import MediaIoBaseDownload
 
-scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
+scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 
 def cap_id_to_caption():
     # Disable OAuthlib's HTTPS verification when running locally.
@@ -59,9 +60,24 @@ def cap_id_to_caption():
         credentials=credentials,
     )
 
-    #request = youtube.captions().download(
-    #    id="8yMV7mc691ajCze115cxb5goeKsI0BJn",
-    #)
+    request = youtube.captions().list(
+        part="snippet",
+        videoId="M7FIvfx5J10"
+    )
+
+    response = request.execute()
+
+    #pprint.pprint(response)
+    caption_id = response['items'][0]['id']
+
+    #print(caption_id)
+
+    subtitles = youtube.captions().download(
+        id="caption_id",
+    ).execute()
+
+    print(subtitles)
+
     #fh = io.FileIO("caption.txt", "wb")
 
     #download = MediaIoBaseDownload(fh, request)
