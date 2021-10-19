@@ -12,7 +12,10 @@ export default function Home() {
       <div className="pt-10">
         <div className="flex justify-between pr-6">
           <h1 className="pl-6 pt-12 font-bold text-3xl">👋 Welcome Back!</h1>
-          <button className="flex border border-solid bg-gray-50 p-2 h-10 mt-10 pl-6 pr-6 rounded-lg">
+          <button
+            onClick={() => history.push("/create")}
+            className="flex border border-solid bg-gray-50 p-2 h-10 mt-10 pl-6 pr-6 rounded-lg"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -59,7 +62,7 @@ export default function Home() {
                 Functions
               </div>
             </div>
-          </div> 
+          </div>
           <div className="bg-gray-100 rounded-xl">
             <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
             <div className="p-4">
