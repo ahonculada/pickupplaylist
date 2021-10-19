@@ -9,6 +9,7 @@ import Header from "./components/Header.js";
 import { createBrowserHistory } from "history";
 import Browse from "./pages/Browse";
 import History from "./pages/History";
+import Create from "./pages/Create";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route exact path="/history">
             <History />
+          </Route>
+          <Route exact path="/create">
+            <Create />
           </Route>
         </Switch>
       </Router>

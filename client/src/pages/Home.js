@@ -2,13 +2,34 @@ import react from "react";
 import Logo from "../assets/logo.png";
 import Header from "../components/Header";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
+  let history = useHistory();
   return (
     <div className="pb-20">
       <Header />
       <div className="pt-10">
-        <h1 className="pl-6 pt-12 font-bold text-3xl">👋 Welcome Back!</h1>
+        <div className="flex justify-between pr-6">
+          <h1 className="pl-6 pt-12 font-bold text-3xl">👋 Welcome Back!</h1>
+          <button className="flex border border-solid bg-gray-50 p-2 h-10 mt-10 pl-6 pr-6 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5 text-gray-600"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span className="ml-4 pr font-bold text-gray-600">
+              New Reccomendation
+            </span>
+          </button>
+        </div>
         <p className="pl-6 pt-2 font-medium text-lg text-gray-600">
           Here’s your recommended videos:
         </p>
