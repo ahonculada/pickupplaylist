@@ -10,6 +10,7 @@ import { createBrowserHistory } from "history";
 import Browse from "./pages/Browse";
 import History from "./pages/History";
 import Create from "./pages/Create";
+import Recommendations from "./pages/Recommendations";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route exact path="/create">
             <Create />
+          </Route>
+          <Route exact path="/recommendations">
+            <Recommendations />
           </Route>
         </Switch>
       </Router>

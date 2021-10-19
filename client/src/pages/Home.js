@@ -26,7 +26,7 @@ export default function Home() {
               />
             </svg>
             <span className="ml-4 pr font-bold text-gray-600">
-              New Reccomendation
+              New Recomendation
             </span>
           </button>
         </div>
@@ -59,7 +59,7 @@ export default function Home() {
                 Functions
               </div>
             </div>
-          </div>
+          </div> 
           <div className="bg-gray-100 rounded-xl">
             <div className="w-full h-52 bg-gray-300 rounded-t-xl"></div>
             <div className="p-4">
