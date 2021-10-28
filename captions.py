@@ -67,10 +67,10 @@ def cap_id_to_caption():
 
     response = request.execute()
 
-    #pprint.pprint(response)
+    pprint.pprint(response)
     caption_id = response['items'][0]['id']
 
-    #print(caption_id)
+    print(caption_id)
 
     subtitles = youtube.captions().download(
         id="caption_id",
