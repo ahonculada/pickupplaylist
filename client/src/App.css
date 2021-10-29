@@ -48,6 +48,6 @@
     @apply bg-green-200 border-green-600 border border-solid text-center text-green-600 rounded-3xl font-medium;
   }
   .button-allign{
-    @apply grid grid-cols-5 gap-4 mr-6 mb-4
+
   }
 }  

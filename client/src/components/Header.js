@@ -10,7 +10,9 @@ export default function Header() {
   return (
     <div className="w-full bg-white border-b-2 border-solid border-gray-300 pt-4 pb-4 pl-4 pr-4 flex justify-between fixed">
       <div className="w-1/3">
-        <img src={Logo} alt="logo" className="w-60 h-8" />
+        <Link to="/home">
+          <img src={Logo} alt="logo" className="w-60 h-8" />
+        </Link>
       </div>
       <ul className="flex text-blue-600 font-bold text-xl w-1/3 justify-center">
         <Link to="/home">
