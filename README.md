@@ -2,4 +2,4 @@
 
 This repo contains the code for Knight Hacks Projects Team 1.
 
-Test backend change.
+python3 spacy download en_core_web_sm

@@ -15,10 +15,14 @@ class Item(ItemBase):
     class Config:
         orm_mode: True
 
+class Login(BaseModel):
+    username: str
+    password: str
+
 class UserBase(BaseModel):
     email: str
 
-class UserCreat(UserBase):
+class UserCreate(UserBase):
     password: str
 
 class User(UserBase):
@@ -28,5 +32,16 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
+
+class Video(BaseModel):
+    vid_id: str
+    category: str
 
 

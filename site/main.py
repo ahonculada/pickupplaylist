@@ -1,21 +1,20 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from typing import List, Optional
-#import crud
-#import models
-#import schemas
-#from database import SessionLocal, engine
-
-#models.Base.metadata.create_all(bind=engine)
+import schemas, models
+from sqlalchemy.orm import Session
+from database import engine, SessionLocal
 
 app = FastAPI()
 
+models.Base.metadata.create_all(engine)
+
 # Dependency
-#def get_db():
-#    db = SessionLocal()
-#    try:
-#        yield db
-#    finally:
-#        db.close()
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 
 @app.get("/")
@@ -47,8 +46,10 @@ def sign_up_user(email: str, password: str):
     return email
 
 @app.post("/create")
-def create_tag(vid_type: str, vid_URL: str):
-    return vid_URL
+def create_tag(request: schemas.Video, db: Session = Depends(get_db)):
+    new_video = models.Video(category=request.category, vid_id=request.vid_id)
+    db.add(new_video)
+    db.commit()
+    db.refresh(new_video)
+    return new_video
 
-#URL = 'https://www.youtube.com/watch?v=NrO0CJCbYLA'
-#vid_id = URL.split("=")[1]
